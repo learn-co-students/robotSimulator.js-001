@@ -1,6 +1,10 @@
 {
   "name": "Robot",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:flatiron-school-curriculum/robotSimulator.js.git"
+  },
   "description": "Robot Simulator",
   "dependencies": {
     "grunt": "~0.4.1",
