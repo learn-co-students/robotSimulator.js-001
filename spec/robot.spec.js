@@ -1,5 +1,4 @@
 'use strict';
-var Robot = require('../lib/robot');
 
 describe("Robot", function() {
   var robot = new Robot();
