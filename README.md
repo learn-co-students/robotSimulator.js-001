@@ -1,8 +1,3 @@
----
-languages: javascript
-tags: hard, ai, grid
----
-
 # Robot Simulator
 
 ## Background
