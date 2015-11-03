@@ -16,14 +16,6 @@ direction (north, east, south, or west) at a set of {x,y} coordinates, e.g.,
 
 ### Step 2
 
-Robots can pivot left and right.
-
-The robot factory manufactures robots that have three possible movements:
-
-* turn right
-* turn left
-* advance
-
 The factory's test facility needs a program to verify robot movements.
 
 There are a number of different rooms of varying sizes, measured in Robot
@@ -43,12 +35,6 @@ facility verifies the robot's new position, and in which direction it is
 pointing.
 
 ### Step 3
-
-The robot factory manufactures robots that have three possible movements:
-
-* turn right
-* turn left
-* advance
 
 The robot factory's test facility has a simulator which can take a string of
 letters and feed this into a robot as instructions.
