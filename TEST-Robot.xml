@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="22" errors="0" failures="0" time="0.016" timestamp="2015-11-25T15:36:47">
+		<testcase classname="Robot" name="robot bearing" time="0.003">
+		</testcase>
+		<testcase classname="Robot" name="invalid robot bearing" time="0.001">
+		</testcase>
+		<testcase classname="Robot" name="turn right from north" time="0">
+		</testcase>
+		<testcase classname="Robot" name="turn right from east" time="0.001">
+		</testcase>
+		<testcase classname="Robot" name="turn right from south" time="0">
+		</testcase>
+		<testcase classname="Robot" name="turn right from west" time="0">
+		</testcase>
+		<testcase classname="Robot" name="turn left from north" time="0">
+		</testcase>
+		<testcase classname="Robot" name="turn left from east" time="0">
+		</testcase>
+		<testcase classname="Robot" name="turn left from south" time="0">
+		</testcase>
+		<testcase classname="Robot" name="turn left from west" time="0">
+		</testcase>
+		<testcase classname="Robot" name="robot coordinates" time="0">
+		</testcase>
+		<testcase classname="Robot" name="other robot coordinates" time="0">
+		</testcase>
+		<testcase classname="Robot" name="advance when facing north" time="0">
+		</testcase>
+		<testcase classname="Robot" name="advance when facing east" time="0.001">
+		</testcase>
+		<testcase classname="Robot" name="advance when facing south" time="0">
+		</testcase>
+		<testcase classname="Robot" name="advance when facing west" time="0">
+		</testcase>
+		<testcase classname="Robot" name="instructions for turning left" time="0.001">
+		</testcase>
+		<testcase classname="Robot" name="instructions for turning right" time="0">
+		</testcase>
+		<testcase classname="Robot" name="instructions for advancing" time="0">
+		</testcase>
+		<testcase classname="Robot" name="series of instructions" time="0.002">
+		</testcase>
+		<testcase classname="Robot" name="instruct robot" time="0.001">
+		</testcase>
+		<testcase classname="Robot" name="instruct many robots" time="0.001">
+		</testcase>
+	</testsuite>
+</testsuites>
+
