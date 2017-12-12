@@ -11,77 +11,69 @@ describe("robot.js", () => {
 				expect(wallE.bearing).to.eq(direction);
 			});
 		});
+
+		it("should handle an invalid robot bearing", () => {
+			//TODO
+			// expect(wallE.setOrientation("hotdog")).to.throw(/Invalid Robot Bearing/);
+			// expect(wallE.setOrientation("hotdog")).to.throw(
+			// 	new Error("Invalid Robot Bearing")
+			// );
+		});
+
+		it("should turn right when facing north", () => {
+			wallE.setOrientation("north");
+			wallE.turnRight();
+			expect(wallE.bearing).to.eq("east");
+		});
+
+		it("should turn right when facing east", () => {
+			wallE.setOrientation("east");
+			wallE.turnRight();
+			expect(wallE.bearing).to.eq("south");
+		});
+
+		it("should turn right when facing south", () => {
+			wallE.setOrientation("south");
+			wallE.turnRight();
+			expect(wallE.bearing).to.eq("west");
+		});
+
+		it("should turn right when facing west", () => {
+			wallE.setOrientation("west");
+			wallE.turnRight();
+			expect(wallE.bearing).to.eq("north");
+		});
+
+		it("should turn left when facing north", () => {
+			wallE.setOrientation("north");
+			wallE.turnLeft();
+			expect(wallE.bearing).to.eq("west");
+		});
+
+		it("turn left from east", () => {
+			wallE.setOrientation("east");
+			wallE.turnLeft();
+			expect(wallE.bearing).to.eq("north");
+		});
+
+		it("turn left from south", () => {
+			wallE.setOrientation("south");
+			wallE.turnLeft();
+			expect(wallE.bearing).to.eq("east");
+		});
+
+		it("turn left from west", () => {
+			wallE.setOrientation("west");
+			wallE.turnLeft();
+			expect(wallE.bearing).to.eq("south");
+		});
 	});
 });
 
-/*'use strict';
+/*
 
-describe("Robot", function() {
-  var robot = new Robot();
 
-  it("robot bearing", function() {
-    var directions = [ 'east', 'west', 'north', 'south' ];
 
-    for (var i = 0; i < directions.length; i++) {
-      var currentDirection = directions[i];
-      robot.orient(currentDirection);
-      expect(robot.bearing).toEqual(currentDirection);
-    }
-  });
-
-  it("invalid robot bearing", function() {
-    expect(function() {
-      robot.orient("crood");
-    }).toThrow(new Error("Invalid Robot Bearing"));
-  });
-
-  it("turn right from north", function() {
-    robot.orient('north');
-    robot.turnRight();
-    expect(robot.bearing).toEqual('east');
-  });
-
-  it("turn right from east", function() {
-    robot.orient('east');
-    robot.turnRight();
-    expect(robot.bearing).toEqual('south');
-  });
-
-  it("turn right from south", function() {
-    robot.orient('south');
-    robot.turnRight();
-    expect(robot.bearing).toEqual('west');
-  });
-
-  it("turn right from west", function() {
-    robot.orient('west');
-    robot.turnRight();
-    expect(robot.bearing).toEqual('north');
-  });
-
-  it("turn left from north", function() {
-    robot.orient('north');
-    robot.turnLeft();
-    expect(robot.bearing).toEqual('west');
-  });
-
-  it("turn left from east", function() {
-    robot.orient('east');
-    robot.turnLeft();
-    expect(robot.bearing).toEqual('north');
-  });
-
-  it("turn left from south", function() {
-    robot.orient('south');
-    robot.turnLeft();
-    expect(robot.bearing).toEqual('east');
-  });
-
-  it("turn left from west", function() {
-    robot.orient('west');
-    robot.turnLeft();
-    expect(robot.bearing).toEqual('south');
-  });
 
   it("robot coordinates", function() {
     robot.at(3, 0);
@@ -96,28 +88,28 @@ describe("Robot", function() {
 
   it("advance when facing north", function() {
     robot.at(0,0);
-    robot.orient('north');
+    wallE.setOrientation('north');
     robot.advance();
     expect(robot.coordinates).toEqual([0,1]);
   });
 
   it("advance when facing east", function() {
     robot.at(0,0);
-    robot.orient('east');
+    wallE.setOrientation('east');
     robot.advance();
     expect(robot.coordinates).toEqual([1,0]);
   });
 
   it("advance when facing south", function() {
     robot.at(0,0);
-    robot.orient('south');
+    wallE.setOrientation('south');
     robot.advance();
     expect(robot.coordinates).toEqual([0,-1]);
   });
 
   it("advance when facing west", function() {
     robot.at(0,0);
-    robot.orient('west');
+    wallE.setOrientation('west');
     robot.advance();
     expect(robot.coordinates).toEqual([-1,0]);
   });
@@ -167,4 +159,11 @@ describe("Robot", function() {
     expect(robot3.bearing).toEqual("north");
   });
 });
+
+it("invalid robot bearing", function() {
+	expect(function() {
+		wallE.setOrientation("crood");
+	}).toThrow(new Error("Invalid Robot Bearing"));
+});
+
 */
