@@ -124,40 +124,50 @@ describe("robot.js", () => {
 				]);
 			});
 		});
+
+		describe("Robot.prototype.place()", () => {
+			it("should place and move the robot", () => {
+				wallE.place({ x: -2, y: 1, direction: "east" }); //TODO: test place more thoroughly
+				wallE.evaluate("RLAALAL");
+				expect(wallE.coordinates).to.deep.eq([0, 2]);
+				expect(wallE.bearing).to.eq("west");
+			});
+		});
+
+		describe("putting everything together", () => {
+			it("should instantiate and instruct multiple robots", () => {
+				const R2D2 = new Robot();
+				const IronGiant = new Robot();
+				const HAL9000 = new Robot();
+				const Bender = new Robot();
+
+				R2D2.place({ x: 0, y: 0, direction: "north" });
+				IronGiant.place({ x: 2, y: -7, direction: "east" });
+				HAL9000.place({ x: 8, y: 4, direction: "south" });
+				Bender.place({ x: -4, y: -4, direction: "west" });
+
+				R2D2.evaluate("LAAARALA");
+				IronGiant.evaluate("RRAAAAALA");
+				HAL9000.evaluate("LAAARRRALLLL");
+				Bender.evaluate("LAAARRRALLLL");
+
+				expect(R2D2.coordinates).to.deep.eq([-4, 1]);
+				expect(R2D2.bearing).to.eq("west");
+
+				expect(IronGiant.coordinates).to.deep.eq([-3, -8]);
+				expect(IronGiant.bearing).to.eq("south");
+
+				expect(HAL9000.coordinates).to.deep.eq([11, 5]);
+				expect(HAL9000.bearing).to.eq("north");
+
+				expect(Bender.coordinates).to.deep.eq([-3, -7]);
+				expect(Bender.bearing).to.eq("east");
+			});
+		});
 	});
 });
 
 /*
-
-
-  it("instruct robot", function() {
-    robot.place({x: -2, y: 1, direction: "east"});
-    robot.evaluate("RLAALAL");
-    expect(robot.coordinates).toEqual([0,2]);
-    expect(robot.bearing).toEqual("west");
-  });
-
-  it("instruct many robots", function() {
-    var robot1 = new Robot();
-    var robot2 = new Robot();
-    var robot3 = new Robot();
-    robot1.place({x: 0, y: 0, direction: "north"});
-    robot2.place({x: 2, y: -7, direction: "east"});
-    robot3.place({x: 8, y: 4, direction: "south"});
-    robot1.evaluate("LAAARALA");
-    robot2.evaluate("RRAAAAALA");
-    robot3.evaluate("LAAARRRALLLL");
-
-    expect(robot1.coordinates).toEqual([-4, 1]);
-    expect(robot1.bearing).toEqual("west");
-
-    expect(robot2.coordinates).toEqual([-3, -8]);
-    expect(robot2.bearing).toEqual("south");
-
-    expect(robot3.coordinates).toEqual([11, 5]);
-    expect(robot3.bearing).toEqual("north");
-  });
-});
 
 it("invalid robot bearing", function() {
 	expect(function() {
