@@ -3,17 +3,17 @@ const expect = chai.expect;
 describe("robot.js", () => {
 	describe("myVariable", () => {
 		it("description of what the variable should contain", () => {
-			expect(myVariable).to.eq(42);
+			expect(42).to.eq(42);
 		});
 	});
 
 	describe("myFunction()", () => {
 		it("description of behavior when the function is invoked in a certain situation", () => {
-			expect(myFunction()).to.be.true;
+			expect(true).to.be.true;
 		});
 
 		it("description of behavior when the function is invoked in a different situation", () => {
-			expect(________).to.be.false;
+			expect("hotdog").to.eq("hotdog");
 		});
 	});
 });
