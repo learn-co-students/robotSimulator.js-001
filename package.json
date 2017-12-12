@@ -7,18 +7,22 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "npm test"
+    "postinstall": "gem install learn-co",
+    "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/learn-co-curriculum/robotSimulator.js.git"
+    "url": "git+ssh://git@github.com:learn-co-curriculum/robotSimulator.js.git"
   },
   "keywords": [
-    "JS",
-    "OO"
+    "javascript",
+    "object oriented",
+    "robots",
+    "learn.co",
+    "flatiron school"
   ],
   "author": "Flatiron School",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE.md",
   "bugs": {
     "url": "https://github.com/learn-co-curriculum/robotSimulator.js/issues"
   },
