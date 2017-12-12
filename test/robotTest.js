@@ -5,8 +5,7 @@ const expect = chai.expect;
 describe("robot.js", () => {
 	const wallE = new Robot();
 	const directions = ["east", "west", "north", "south"];
-	// before(() => {
-	// });
+
 	describe("Robot", () => {
 		it("should set Robot orientation", () => {
 			directions.forEach(direction => {
@@ -17,10 +16,11 @@ describe("robot.js", () => {
 
 		it("should handle an invalid robot bearing", () => {
 			//TODO
-			// expect(wallE.setOrientation("hotdog")).to.throw(/Invalid Robot Bearing/);
-			// expect(wallE.setOrientation("hotdog")).to.throw(
-			// 	new Error("Invalid Robot Bearing")
-			// );
+
+			expect(() => wallE.setOrientation("hotdog")).to.throw();
+			expect(() => wallE.setOrientation("hotdog")).to.throw(
+				/Invalid Robot Bearing/i
+			);
 		});
 
 		it("should turn right when facing north", () => {
@@ -166,13 +166,3 @@ describe("robot.js", () => {
 		});
 	});
 });
-
-/*
-
-it("invalid robot bearing", function() {
-	expect(function() {
-		wallE.setOrientation("crood");
-	}).toThrow(new Error("Invalid Robot Bearing"));
-});
-
-*/
