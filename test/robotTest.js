@@ -15,8 +15,6 @@ describe("robot.js", () => {
 		});
 
 		it("should handle an invalid robot bearing", () => {
-			//TODO
-
 			expect(() => wallE.setOrientation("hotdog")).to.throw();
 			expect(() => wallE.setOrientation("hotdog")).to.throw(
 				/Invalid Robot Bearing/i
