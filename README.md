@@ -1,3 +1,5 @@
+<!-- TODO: FIX THIS README -->
+
 # Robot Simulator
 
 ## Background
@@ -39,22 +41,25 @@ pointing.
 The robot factory's test facility has a simulator which can take a string of
 letters and feed this into a robot as instructions.
 
-- The letter-string "RAALAL" means:
-  - Turn right
-  - Advance twice
-  - Turn left
-  - Advance once
-  - Turn left yet again
-- Say a robot starts at {7, 3} facing north.
+* The letter-string "RAALAL" means:
+  * Turn right
+  * Advance twice
+  * Turn left
+  * Advance once
+  * Turn left yet again
+* Say a robot starts at {7, 3} facing north.
   Then running this stream of instructions should leave it
   at {9, 4} facing west.
 
 ## Tests
+
 To run the specs follow these commands:
+
 ```shell
 #to run in the browser
 learn -b
 ```
+
 When you finish passing a test, remove the `x` from `xit` to convert it to a runnable test.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/robotSimulator.js' title='Robot Simulator'>Robot Simulator</a> on Learn.co and start learning to code for free.</p>
