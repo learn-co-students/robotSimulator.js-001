@@ -1,4 +1,24 @@
-'use strict';
+const expect = chai.expect;
+
+describe("robot.js", () => {
+	describe("myVariable", () => {
+		it("description of what the variable should contain", () => {
+			expect(myVariable).to.eq(42);
+		});
+	});
+
+	describe("myFunction()", () => {
+		it("description of behavior when the function is invoked in a certain situation", () => {
+			expect(myFunction()).to.be.true;
+		});
+
+		it("description of behavior when the function is invoked in a different situation", () => {
+			expect(________).to.be.false;
+		});
+	});
+});
+
+/*'use strict';
 
 describe("Robot", function() {
   var robot = new Robot();
@@ -151,3 +171,4 @@ describe("Robot", function() {
     expect(robot3.bearing).toEqual("north");
   });
 });
+*/
