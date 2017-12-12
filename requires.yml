@@ -1,6 +1,0 @@
-# A list of javascript files required for the project, in dependency order
-# javascripts:
-#   files:
-#     - lib/robot.js
-#   specs:
-#     - spec/robot.spec.js
