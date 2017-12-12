@@ -1,10 +1,13 @@
 const expect = chai.expect;
 
-describe("robot.js", () => {
-	describe("Robot", () => {
-		const wallE = new Robot();
-		const directions = ["east", "west", "north", "south"];
+//TODO: separate these into different describe blocks based on Robot functions
 
+describe("robot.js", () => {
+	const wallE = new Robot();
+	const directions = ["east", "west", "north", "south"];
+	// before(() => {
+	// });
+	describe("Robot", () => {
 		it("should set Robot orientation", () => {
 			directions.forEach(direction => {
 				wallE.setOrientation(direction);
@@ -67,46 +70,48 @@ describe("robot.js", () => {
 			wallE.turnLeft();
 			expect(wallE.bearing).to.eq("south");
 		});
+
+		it("should set its coordinates", () => {
+			wallE.at(3, 0);
+			expect(wallE.coordinates).to.be.an("array");
+			expect(wallE.coordinates).to.deep.eq([3, 0]);
+			//TODO: should these be separate tests?
+			wallE.at(-2, 5);
+			expect(wallE.coordinates).to.be.an("array");
+			expect(wallE.coordinates).to.deep.eq([-2, 5]);
+		});
+
+		it("should advance when facing north", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("north");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([0, 1]);
+		});
+
+		it("should advance when facing east", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("east");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([1, 0]);
+		});
+
+		it("should advance when facing south", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("south");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([0, -1]);
+		});
+
+		it("should advance when facing west", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("west");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([-1, 0]);
+		});
 	});
 });
 
 /*
-
-
-
-
-  it("robot coordinates", function() {
-    robot.at(3, 0);
-    expect(robot.coordinates).toEqual([3,0]);
-  });
-
-
-  it("other robot coordinates", function() {
-    robot.at(-2, 5);
-    expect(robot.coordinates).toEqual([-2,5]);
-  });
-
-  it("advance when facing north", function() {
-    robot.at(0,0);
-    wallE.setOrientation('north');
-    robot.advance();
-    expect(robot.coordinates).toEqual([0,1]);
-  });
-
-  it("advance when facing east", function() {
-    robot.at(0,0);
-    wallE.setOrientation('east');
-    robot.advance();
-    expect(robot.coordinates).toEqual([1,0]);
-  });
-
-  it("advance when facing south", function() {
-    robot.at(0,0);
-    wallE.setOrientation('south');
-    robot.advance();
-    expect(robot.coordinates).toEqual([0,-1]);
-  });
-
   it("advance when facing west", function() {
     robot.at(0,0);
     wallE.setOrientation('west');
