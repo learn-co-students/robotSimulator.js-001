@@ -108,33 +108,27 @@ describe("robot.js", () => {
 			wallE.advance();
 			expect(wallE.coordinates).to.deep.eq([-1, 0]);
 		});
+
+		describe("Robot.prototype.translateInstructions()", () => {
+			//TODO: is this test name confusing for students?
+			it("should translate instructions into an array of robot instructions", () => {
+				expect(wallE.translateInstructions("L")).to.be.an("array");
+				expect(wallE.translateInstructions("L")).to.deep.eq(["turnLeft"]);
+				expect(wallE.translateInstructions("R")).to.deep.eq(["turnRight"]);
+				expect(wallE.translateInstructions("A")).to.deep.eq(["advance"]);
+				expect(wallE.translateInstructions("RAAL")).to.deep.eq([
+					"turnRight",
+					"advance",
+					"advance",
+					"turnLeft"
+				]);
+			});
+		});
 	});
 });
 
 /*
-  it("advance when facing west", function() {
-    robot.at(0,0);
-    wallE.setOrientation('west');
-    robot.advance();
-    expect(robot.coordinates).toEqual([-1,0]);
-  });
 
-  it("instructions for turning left", function() {
-    expect(robot.instructions("L")).toEqual(["turnLeft"]);
-  });
-
-  it("instructions for turning right", function() {
-    expect(robot.instructions("R")).toEqual(["turnRight"]);
-  });
-
-  it("instructions for advancing", function() {
-    expect(robot.instructions("A")).toEqual(["advance"]);
-  });
-
-  it("series of instructions", function() {
-    expect(robot.instructions("RAAL"))
-      .toEqual(["turnRight", "advance", "advance", "turnLeft"]);
-  });
 
   it("instruct robot", function() {
     robot.place({x: -2, y: 1, direction: "east"});
