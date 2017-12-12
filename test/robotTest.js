@@ -1,19 +1,15 @@
 const expect = chai.expect;
 
 describe("robot.js", () => {
-	describe("myVariable", () => {
-		it("description of what the variable should contain", () => {
-			expect(42).to.eq(42);
-		});
-	});
+	describe("Robot", () => {
+		const wallE = new Robot();
+		const directions = ["east", "west", "north", "south"];
 
-	describe("myFunction()", () => {
-		it("description of behavior when the function is invoked in a certain situation", () => {
-			expect(true).to.be.true;
-		});
-
-		it("description of behavior when the function is invoked in a different situation", () => {
-			expect("hotdog").to.eq("hotdog");
+		it("should set Robot orientation", () => {
+			directions.forEach(direction => {
+				wallE.setOrientation(direction);
+				expect(wallE.bearing).to.eq(direction);
+			});
 		});
 	});
 });
