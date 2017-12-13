@@ -1,6 +1,6 @@
+tags:
+  - functional
 languages:
   - javascript
-tags:
-  - hard
-  - ai
-  - grid
+resources:
+  - 2
