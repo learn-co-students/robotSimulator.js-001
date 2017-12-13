@@ -1,0 +1,33 @@
+{
+  "name": "robotsimulator",
+  "version": "2.0.0",
+  "description": "OO JS Lab for Students",
+  "main": "/lib/robots.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "postinstall": "gem install learn-co",
+    "test": "node_modules/browser-sync/bin/browser-sync.js start --config node_modules/learn-browser/bs-config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:learn-co-curriculum/robotSimulator.js.git"
+  },
+  "keywords": [
+    "javascript",
+    "object oriented",
+    "robots",
+    "learn.co",
+    "flatiron school"
+  ],
+  "author": "Flatiron School",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/learn-co-curriculum/robotSimulator.js/issues"
+  },
+  "homepage": "https://github.com/learn-co-curriculum/robotSimulator.js#readme",
+  "devDependencies": {
+    "learn-browser": "^0.1.15"
+  }
+}
