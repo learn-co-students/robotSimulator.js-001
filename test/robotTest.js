@@ -33,7 +33,7 @@ describe("robot.js", () => {
 		it("should set Robot orientation", () => {
 			directions.forEach(direction => {
 				wallE.setBearing(direction);
-				expect(wallE.bearing).to.eq(direction); //TODO: make this case insensitive
+				expect(wallE.bearing).to.eq(direction);
 			});
 		});
 
