@@ -49,10 +49,7 @@ Then running this stream of instructions should leave it at `[9, 4]` facing west
 
 To run the specs follow these commands:
 
-```shell
-#to run in the browser
-learn
-```
+`learn`
 
 ![alt text](https://media.giphy.com/media/xT9DPp7lYtKlM0QzII/giphy.gif "Atlas/ Terminator mashup gif")
 
