@@ -1,7 +1,5 @@
 const expect = chai.expect;
 
-//TODO: separate these into different describe blocks based on Robot functions
-
 describe("robot.js", () => {
 	const wallE = new Robot();
 
@@ -18,7 +16,6 @@ describe("robot.js", () => {
 	});
 
 	describe("setCoordinates()", () => {
-		//TODO: should we do away with this fn?
 		it("should set robot coordinates", () => {
 			wallE.setCoordinates(3, 0);
 			expect(wallE.coordinates).to.be.an("array");
@@ -30,7 +27,6 @@ describe("robot.js", () => {
 		});
 	});
 
-	// describe("Robot", () => {
 	describe("setBearing()", () => {
 		const directions = ["east", "west", "north", "south"];
 
@@ -51,10 +47,13 @@ describe("robot.js", () => {
 
 	describe("place()", () => {
 		it("should set robot coordinates and orientation", () => {
-			wallE.place({ x: -2, y: 1, direction: "east" }); //TODO: test place more thoroughly
-			// wallE.translateInstructions("RLAALAL");
-			// expect(wallE.coordinates).to.deep.eq([0, 2]);
-			// expect(wallE.bearing).to.eq("west");
+			wallE.place({ x: -2, y: 1, direction: "east" });
+			expect(wallE.bearing).to.match(/east/i);
+			expect(wallE.coordinates).to.deep.eq([-2, 1]);
+
+			wallE.place({ x: -5, y: -7, direction: "south" });
+			expect(wallE.bearing).to.match(/south/i);
+			expect(wallE.coordinates).to.deep.eq([-5, -7]);
 		});
 	});
 
