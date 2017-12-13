@@ -1,8 +1,6 @@
 const expect = chai.expect;
 
 describe("robot.js", () => {
-	const wallE = new Robot();
-
 	describe("Robot() constructor function", () => {
 		const Terminator = new Robot();
 
@@ -16,6 +14,7 @@ describe("robot.js", () => {
 	});
 
 	describe("setCoordinates()", () => {
+		const wallE = new Robot();
 		it("should set robot coordinates", () => {
 			wallE.setCoordinates(3, 0);
 			expect(wallE.coordinates).to.be.an("array");
@@ -28,6 +27,7 @@ describe("robot.js", () => {
 	});
 
 	describe("setBearing()", () => {
+		const wallE = new Robot();
 		const directions = ["east", "west", "north", "south"];
 
 		it("should set Robot orientation", () => {
@@ -46,6 +46,8 @@ describe("robot.js", () => {
 	});
 
 	describe("place()", () => {
+		let wallE;
+		beforeEach(() => (wallE = new Robot()));
 		it("should set robot coordinates and orientation", () => {
 			wallE.place({ x: -2, y: 1, direction: "east" });
 			expect(wallE.bearing).to.match(/east/i);
@@ -58,6 +60,7 @@ describe("robot.js", () => {
 	});
 
 	describe("turnRight()", () => {
+		const wallE = new Robot();
 		it("should turn right when facing north", () => {
 			wallE.setBearing("north");
 			wallE.turnRight();
@@ -84,6 +87,7 @@ describe("robot.js", () => {
 	});
 
 	describe("turnLeft()", () => {
+		const wallE = new Robot();
 		it("should turn left when facing north", () => {
 			wallE.setBearing("north");
 			wallE.turnLeft();
@@ -110,6 +114,7 @@ describe("robot.js", () => {
 	});
 
 	describe("advance()", () => {
+		const wallE = new Robot();
 		it("should advance when facing north", () => {
 			wallE.setCoordinates(0, 0);
 			wallE.setBearing("north");
@@ -201,5 +206,4 @@ describe("robot.js", () => {
 			expect(Bender.bearing).to.eq("east");
 		});
 	});
-	// });
 });
