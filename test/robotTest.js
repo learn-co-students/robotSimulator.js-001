@@ -3,8 +3,11 @@ const expect = chai.expect;
 //TODO: separate these into different describe blocks based on Robot functions
 
 describe("robot.js", () => {
+	const wallE = new Robot();
+
 	describe("Robot() constructor function", () => {
 		const Terminator = new Robot();
+
 		it("should create a new robot with default coordinates of [0, 0]", () => {
 			expect(Terminator.coordinates).to.deep.eq([0, 0]);
 		});
@@ -13,22 +16,36 @@ describe("robot.js", () => {
 			expect(Terminator.bearing).to.match(/north/i);
 		});
 	});
-	const wallE = new Robot();
-	const directions = ["east", "west", "north", "south"];
 
-	// describe("Robot", () => {
-	it("should set Robot orientation", () => {
-		directions.forEach(direction => {
-			wallE.setOrientation(direction);
-			expect(wallE.bearing).to.eq(direction);
+	describe("at()", () => {
+		it("should set robot coordinates", () => {
+			wallE.at(3, 0);
+			expect(wallE.coordinates).to.be.an("array");
+			expect(wallE.coordinates).to.deep.eq([3, 0]);
+
+			wallE.at(-2, 5);
+			expect(wallE.coordinates).to.be.an("array");
+			expect(wallE.coordinates).to.deep.eq([-2, 5]);
 		});
 	});
 
-	it("should handle an invalid robot bearing", () => {
-		expect(() => wallE.setOrientation("hotdog")).to.throw();
-		expect(() => wallE.setOrientation("hotdog")).to.throw(
-			/Invalid Robot Bearing/i
-		);
+	// describe("Robot", () => {
+	describe("setOrientation()", () => {
+		const directions = ["east", "west", "north", "south"];
+
+		it("should set Robot orientation", () => {
+			directions.forEach(direction => {
+				wallE.setOrientation(direction);
+				expect(wallE.bearing).to.eq(direction); //TODO: make this case insensitive
+			});
+		});
+
+		it("should handle an invalid robot bearing", () => {
+			expect(() => wallE.setOrientation("hotdog")).to.throw();
+			expect(() => wallE.setOrientation("hotdog")).to.throw(
+				/Invalid Robot Bearing/i
+			);
+		});
 	});
 
 	describe("turnRight()", () => {
@@ -83,65 +100,71 @@ describe("robot.js", () => {
 		});
 	});
 
-	it("should set its coordinates", () => {
-		wallE.at(3, 0);
-		expect(wallE.coordinates).to.be.an("array");
-		expect(wallE.coordinates).to.deep.eq([3, 0]);
-		//TODO: should these be separate tests?
-		wallE.at(-2, 5);
-		expect(wallE.coordinates).to.be.an("array");
-		expect(wallE.coordinates).to.deep.eq([-2, 5]);
-	});
+	describe("advance()", () => {
+		it("should advance when facing north", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("north");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([0, 1]);
+		});
 
-	it("should advance when facing north", () => {
-		wallE.at(0, 0);
-		wallE.setOrientation("north");
-		wallE.advance();
-		expect(wallE.coordinates).to.deep.eq([0, 1]);
-	});
+		it("should advance when facing east", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("east");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([1, 0]);
+		});
 
-	it("should advance when facing east", () => {
-		wallE.at(0, 0);
-		wallE.setOrientation("east");
-		wallE.advance();
-		expect(wallE.coordinates).to.deep.eq([1, 0]);
-	});
+		it("should advance when facing south", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("south");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([0, -1]);
+		});
 
-	it("should advance when facing south", () => {
-		wallE.at(0, 0);
-		wallE.setOrientation("south");
-		wallE.advance();
-		expect(wallE.coordinates).to.deep.eq([0, -1]);
-	});
-
-	it("should advance when facing west", () => {
-		wallE.at(0, 0);
-		wallE.setOrientation("west");
-		wallE.advance();
-		expect(wallE.coordinates).to.deep.eq([-1, 0]);
+		it("should advance when facing west", () => {
+			wallE.at(0, 0);
+			wallE.setOrientation("west");
+			wallE.advance();
+			expect(wallE.coordinates).to.deep.eq([-1, 0]);
+		});
 	});
 
 	describe("translateInstructions()", () => {
-		it("should translate instructions into an array of robot instructions", () => {
-			expect(wallE.translateInstructions("L")).to.be.an("array");
-			expect(wallE.translateInstructions("L")).to.deep.eq(["turnLeft"]);
-			expect(wallE.translateInstructions("R")).to.deep.eq(["turnRight"]);
-			expect(wallE.translateInstructions("A")).to.deep.eq(["advance"]);
-			expect(wallE.translateInstructions("RAAL")).to.deep.eq([
-				"turnRight",
-				"advance",
-				"advance",
-				"turnLeft"
-			]);
+		let T1000;
+		beforeEach(() => (T1000 = new Robot()));
+
+		it("should handle 'L'", () => {
+			T1000.translateInstructions("L");
+			expect(T1000.bearing).to.match(/west/i);
 		});
+
+		it("should handle 'R'", () => {});
+
+		it("should handle 'A'", () => {});
+
+		it("should handle a complex set of instructions", () => {});
+
+		// expect(wallE.translateInstructions("L")).to.be.an("array");
+		// expect(wallE.translateInstructions("L")).to.eq(["turnLeft"]);
+		// expect(wallE.translateInstructions("R")).to.deep.eq(["turnRight"]);
+		// expect(wallE.translateInstructions("A")).to.deep.eq(["advance"]);
+		// expect(wallE.translateInstructions("RAAL")).to.deep.eq([
+		// 	"turnRight",
+		// 	"advance",
+		// 	"advance",
+		// 	"turnLeft"
+		// ]);
 	});
+
+	describe("evaluate()", () => {});
 
 	describe("place()", () => {
 		it("should place and move the robot", () => {
 			wallE.place({ x: -2, y: 1, direction: "east" }); //TODO: test place more thoroughly
-			wallE.evaluate("RLAALAL");
-			expect(wallE.coordinates).to.deep.eq([0, 2]);
-			expect(wallE.bearing).to.eq("west");
+			// wallE.evaluate("RLAALAL");
+			// expect(wallE.coordinates).to.deep.eq([0, 2]);
+			// expect(wallE.bearing).to.eq("west");
 		});
 	});
 
