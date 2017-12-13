@@ -139,11 +139,27 @@ describe("robot.js", () => {
 			expect(T1000.bearing).to.match(/west/i);
 		});
 
-		it("should handle 'R'", () => {});
+		it("should handle 'R'", () => {
+			T1000.translateInstructions("R");
+			expect(T1000.bearing).to.match(/east/i);
+		});
 
-		it("should handle 'A'", () => {});
+		it("should handle 'A'", () => {
+			T1000.translateInstructions("A");
+			expect(T1000.coordinates).to.deep.eq([0, 1]);
+		});
 
-		it("should handle a complex set of instructions", () => {});
+		it("should handle a complex set of instructions", () => {
+			T1000.translateInstructions("RRAL");
+			expect(T1000.coordinates).to.deep.eq([0, -1]);
+			expect(T1000.bearing).to.match(/east/i);
+		});
+
+		it("should handle an even more complex set of instructions", () => {
+			T1000.translateInstructions("LAAARRRALLLL");
+			expect(T1000.coordinates).to.deep.eq([-3, -1]);
+			expect(T1000.bearing).to.match(/south/i);
+		});
 
 		// expect(wallE.translateInstructions("L")).to.be.an("array");
 		// expect(wallE.translateInstructions("L")).to.eq(["turnLeft"]);
