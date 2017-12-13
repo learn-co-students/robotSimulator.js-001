@@ -51,6 +51,6 @@ To run the specs follow these commands:
 
 `learn`
 
-![alt text](https://media.giphy.com/media/xT9DPp7lYtKlM0QzII/giphy.gif "Atlas/ Terminator mashup gif")
+![alt text](https://media.giphy.com/media/xT9DPp7lYtKlM0QzII/giphy.gif "Terminator GIF")
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/robotSimulator.js' title='Robot Simulator'>Robot Simulator</a> on Learn.co and start learning to code for free.</p>
