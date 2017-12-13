@@ -1,6 +1,6 @@
-<!-- TODO: FIX THIS README -->
-
 # Robot Simulator
+
+![alt text](https://media.giphy.com/media/L6dtrHTgMu6aI/giphy.gif "Robots in a factory")
 
 ## Background
 
@@ -12,9 +12,7 @@ The robot factory manufactures robots that have three possible movements:
 * turn left
 * advance
 
-Robots are placed on a hypothetical infinite grid, facing a particular
-direction (north, east, south, or west) at a set of {x,y} coordinates, e.g.,
-{3,8}.
+Robots are placed on a hypothetical infinite grid, facing a particular direction (north, east, south, or west) at a set of `[x, y]` coordinates, e.g. `[3,8]`.
 
 ### Step 2
 
@@ -23,23 +21,19 @@ The factory's test facility needs a program to verify robot movements.
 There are a number of different rooms of varying sizes, measured in Robot
 Units, the distance a robot moves when you instruct it to `advance`.
 
-The floor of the room is a grid, each square of which measures 1 square RU
-(Robot Unit).
+The floor of the room is a grid, each square of which measures 1 square RU (Robot Unit).
 
-The rooms are always oriented so that each wall faces east, south, west, and
-north.
+The rooms are always oriented so that each wall faces east, south, west, and north.
 
-The test algorithm is to place a robot at a coordinate in the room, facing in
-a particular direction.
+The test algorithm is to place a robot at a coordinate in the room, facing in a particular direction.
 
-The robot then receives a number of instructions, at which point the testing
-facility verifies the robot's new position, and in which direction it is
-pointing.
+The robot then receives a number of instructions, at which point the testing facility verifies the robot's new position, and in which direction it is pointing.
+
+![alt text](https://media.giphy.com/media/l46CwEYnbFtFfjZNS/giphy.gif "Robot slips on banana peel GIF")
 
 ### Step 3
 
-The robot factory's test facility has a simulator which can take a string of
-letters and feed this into a robot as instructions.
+The robot factory's test facility has a simulator which can take a string of letters and feed this into a robot as instructions.
 
 * The letter-string "RAALAL" means:
   * Turn right
@@ -47,9 +41,9 @@ letters and feed this into a robot as instructions.
   * Turn left
   * Advance once
   * Turn left yet again
-* Say a robot starts at {7, 3} facing north.
-  Then running this stream of instructions should leave it
-  at {9, 4} facing west.
+* Say a robot starts at `[7, 3]` facing north.
+
+Then running this stream of instructions should leave it at `[9, 4]` facing west.
 
 ## Tests
 
@@ -57,9 +51,9 @@ To run the specs follow these commands:
 
 ```shell
 #to run in the browser
-learn -b
+learn
 ```
 
-When you finish passing a test, remove the `x` from `xit` to convert it to a runnable test.
+![alt text](https://media.giphy.com/media/xT9DPp7lYtKlM0QzII/giphy.gif "Atlas/ Terminator mashup gif")
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/robotSimulator.js' title='Robot Simulator'>Robot Simulator</a> on Learn.co and start learning to code for free.</p>
