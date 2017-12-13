@@ -28,9 +28,9 @@ describe("robot.js", () => {
 
 	describe("setBearing()", () => {
 		const wallE = new Robot();
-		const directions = ["east", "west", "north", "south"];
+		const directions = ["north", "south", "east", "west"];
 
-		it("should set Robot orientation", () => {
+		it("should set Robot bearing", () => {
 			directions.forEach(direction => {
 				wallE.setBearing(direction);
 				expect(wallE.bearing).to.eq(direction);
